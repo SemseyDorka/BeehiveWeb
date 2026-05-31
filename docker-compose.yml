@@ -6,12 +6,12 @@ services:
     container_name: beehiveData
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: $PASSWORD
-      MYSQL_DATABASE: beehive_db
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
     ports:
       - "3306:3306"
-    volumes:
-      - mariadb_adatok:/var/lib/mysql
+    networks:
+      - beehive_web
 
   backend:
     build: ./backend
@@ -21,6 +21,11 @@ services:
       - "8080:8000"
     depends_on:
       - db
+    environment:
+      - DB_PASSWORD=${DB_PASSWORD}  
+      - DB_NAME=${DB_NAME}
+    networks:
+      - beehive_web
 
   frontend:
     build: ./frontend
@@ -30,6 +35,9 @@ services:
       - "5000:5173"
     depends_on:
       - backend
+    networks:
+      - beehive_web      
 
-volumes:
-  mariadb_adatok:
+networks:
+ beehive_web:
+    driver: bridge
