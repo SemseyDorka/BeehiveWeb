@@ -46,7 +46,7 @@ export default {
 
     const fetchAdatok = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/meresek')
+        const response = await fetch('/api/meresek')
         if (!response.ok) throw new Error('Nem sikerült elérni a szervert.')
         meresek.value = await response.json()
       } catch (err) {
