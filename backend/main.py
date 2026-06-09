@@ -4,7 +4,7 @@ import pymysql
 import os
 
 app = FastAPI()
-
+#todo: cors-ot szigorítani!
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -17,9 +17,8 @@ def get_db_connection():
     return pymysql.connect(
         host='db',
         user='root',
-        # Az os.environ.get() kiolvassa a Docker által átadott titkos jelszót
         password=os.environ.get('DB_PASSWORD'), 
-        database=os.environ.get('DB_NAME', 'beehive_db'), # a 'beehive_db' az alapértelmezett, ha nem találná
+        database=os.environ.get('DB_NAME', 'beehive_db'), 
         cursorclass=pymysql.cursors.DictCursor
     )
 
