@@ -13,21 +13,17 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
         //első 20 sor 
-        i=0
-        adatok.forEach(meres => {
-            if (i<=20)
-            {
-                            const sor = document.createElement("tr");
-            sor.innerHTML = `
-                <td>${meres.id}</td>
-                <td>${new Date(meres.datum).toLocaleString('hu-HU')}</td>
-                <td>${meres.suly} kg</td>
-                <td>${meres.homerseklet} °C</td>
-            `;
-            tablaTorzs.appendChild(sor);
+        adatok.slice(-20).forEach(meres => {
+            const sor = document.createElement("tr");
 
-            }
-            
+            sor.innerHTML = `
+        <td>${meres.id}</td>
+        <td>${new Date(meres.datum).toLocaleString('hu-HU')}</td>
+        <td>${meres.suly} kg</td>
+        <td>${meres.homerseklet} °C</td>
+    `;
+
+            tablaTorzs.appendChild(sor);
         });
     } catch (error) {
         console.error(error);

@@ -1,70 +1,35 @@
+
 body {
     font: 400 15px Lato, sans-serif;
     line-height: 1.8;
     color: #818181;
-  }
-  h2 {
+}
+
+h2 {
     font-size: 24px;
     text-transform: uppercase;
-    color: #303030;
+    color: #fff;
     font-weight: 600;
     margin-bottom: 30px;
-  }
-  h4 {
+    text-align: center; 
+}
+
+h3 {
+    margin: auto;
+    text-align: center;
+}
+
+h4 {
     font-size: 19px;
     line-height: 1.375em;
     color: #303030;
     font-weight: 400;
     margin-bottom: 30px;
-  }  
-  h3
-  {
-    margin: auto;
-    text-align: center;
-  }
-  .jumbotron {
-    background-color: #f5ce42;
-    color: #fff;
-    padding: 100px 100px;
-    font-family: Montserrat, sans-serif;
-    height: 150%;
- 
-  }
-  .container-fluid {
-    padding: 60px 50px;
-  }
-  .bg-grey {
-    background-color: #f6f6f6;
-  }
+}
 
-
-
-  .item h4 {
-    font-size: 19px;
-    line-height: 1.375em;
-    font-weight: 400;
-    font-style: italic;
-    margin: 70px 0;
-  }
-  .item span {
-    font-style: normal;
-  }
-
-
-  .panel-footer {
-    background-color: white !important;
-  }
-  .panel-footer h3 {
-    font-size: 32px;
-  }
-  .panel-footer h4 {
-    color: #aaa;
-    font-size: 14px;
-  }
-
-  .navbar {
+.navbar {
     margin-bottom: 0;
-    background-color: #f5ce42;
+    background-color: #f5ce42 !important; 
     z-index: 9999;
     border: 0;
     font-size: 12px !important;
@@ -72,103 +37,146 @@ body {
     letter-spacing: 4px;
     border-radius: 0;
     font-family: Montserrat, sans-serif;
-  }
-  .navbar li a, .navbar .navbar-brand {
+}
+
+
+.navbar .nav-link, 
+.navbar .navbar-brand {
     color: #fff !important;
-  }
-  .navbar-nav li a:hover, .navbar-nav li.active a {
+}
+
+.navbar-nav .nav-link:hover, 
+.navbar-nav .nav-link.active {
     color: #f5ce42 !important;
     background-color: #fff !important;
-  }
-  .navbar-default .navbar-toggle {
-    border-color: transparent;
+    border-radius: 4px;
+}
+
+.navbar-toggler {
+    border-color: transparent !important;
     color: #fff !important;
-  }
-  .slideanim {visibility:hidden;}
-  .slide {
-    animation-name: slide;
-    -webkit-animation-name: slide;
-    animation-duration: 1s;
-    -webkit-animation-duration: 1s;
+}
+
+
+#banner {
+    background-image: url("bee.jpg");
+    background-size: cover;
+    background-position: center 20%;
+    color: #fff;
+    padding: 100px 25px;
+    font-family: Montserrat, sans-serif;
+    min-height: 25%; 
+}
+#mainTitle
+{
+    margin: auto;
+}
+.container-fluid {
+    padding: 60px 50px;
+}
+
+.bg-grey {
+    background-color: #f6f6f6;
+}
+
+#pontok {
+    background-color: #eff0ee;
+}
+
+.szöveg {
+    text-align: justify;
+}
+
+#kep {
+    text-align: center;
+}
+
+#ikon1 {
+    width: 200px;
+}
+
+#ikon2 {
+    float: right;
+    width: 200px;
+}
+
+.bg-primary {
+    background-color: #f5ce42 !important;
+    color: #fff !important;
+}
+
+
+.item h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    font-weight: 400;
+    font-style: italic;
+    margin: 70px 0;
+}
+
+.item span {
+    font-style: normal;
+}
+
+.card-footer, .panel-footer {
+    background-color: white !important;
+}
+
+.card-footer h3, .panel-footer h3 {
+    font-size: 32px;
+}
+
+.card-footer h4, .panel-footer h4 {
+    color: #aaa;
+    font-size: 14px;
+}
+.card-header
+{
+        background-color: #f5ce42 !important;
+}
+
+.slideanim {
     visibility: visible;
-  }
-  @keyframes slide {
+}
+
+.slide {
+    animation-name:slide;
+    animation-duration: 1s;
+    visibility: visible;
+}
+
+@keyframes slide {
     0% {
-      opacity: 0;
-      transform: translateY(70%);
+        opacity: 0;
+        transform: translateY(70%);
     } 
     100% {
-      opacity: 1;
-      transform: translateY(0%);
+        opacity: 1;
+        transform: translateY(0%);
     }
-  }
-  @-webkit-keyframes slide {
-    0% {
-      opacity: 0;
-      -webkit-transform: translateY(70%);
-    } 
-    100% {
-      opacity: 1;
-      -webkit-transform: translateY(0%);
-    }
-  }
-  @media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 768px) {
     .col-sm-4 {
-      text-align: center;
-      margin: 25px 0;
+        text-align: center;
+        margin: 25px 0;
     }
     .btn-lg {
-      width: 100%;
-      margin-bottom: 35px;
+        width: 100%;
+        margin-bottom: 35px;
     }
-  }
-  @media screen and (max-width: 480px) {
+}
+
+@media screen and (max-width: 480px) {
     .logo {
-      font-size: 150px;
+        font-size: 150px;
     }
-  }
-  #pontok
-  {
-      background-color: #eff0ee;
-  }
-  .szöveg
-  {
-      text-align: justify;
-  }
-  h2
-  {
-      text-align: center;
-  }
-  #ikon1
-  {
+}
 
-  width: 200px;
-  }
-  #ikon2
-  {
-    float: right;
-    width:200px ;
-  }
-  #kep
-  {
+
+footer, .footer {
+    background-color: #f5ce423d !important; 
+    color: #fff !important;
     text-align: center;
-  }
-  footer
-  {
-    background-color:#f5ce42;
-    color: #fff;
-    text-align: center;
-  
-  }
-  .bg-primary
-  {
-     background-color: #f5ce42;
-     color: #fff;
-
-  }
-  #banner
-  {
-    background-image: url("bee.jpg");
-    background-size:cover;
-
-  }
+    padding: 15px 5px;
+}
