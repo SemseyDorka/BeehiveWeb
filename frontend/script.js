@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             tablaTorzs.innerHTML = `<tr><td colspan="4" class="text-center text-warning">Nincsenek adatok.</td></tr>`;
             return;
         }
-        //első 20 sor 
-        adatok.slice(-20).forEach(meres => {
+        //utolsó 20 mérés 
+        adatok.slice(-23).forEach(meres => {
             const sor = document.createElement("tr");
 
             sor.innerHTML = `
