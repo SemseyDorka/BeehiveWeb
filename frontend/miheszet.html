@@ -66,11 +66,57 @@
             <h1 id="mainTitle" class="display-4 fw-bold">KaptárWeb</h1>
             <p class="lead">Kaptármérleg monitorozó és előrejelző rendszer</p>
         </div>
+<div class="row justify-content-center my-5">
+    <div class="col-lg-8 col-md-10">
+        
+        <div class="card shadow border-0">
+            <div class="card-header bg-dark text-white text-center py-3">
+                <h3 class="mb-0 fs-4">🐝 MI-hészet - Okos Méhész Napló</h3>
+            </div>
+            
+            <div class="card-body p-4">
+                <ul class="nav nav-tabs justify-content-center mb-4" id="naploTabs" role="tablist">
+                    <li class="nav-item">
+                        <button class="nav-link active" id="uj-bejegyzes-tab" data-bs-toggle="tab" data-bs-target="#uj-bejegyzes" type="button" role="tab">📝 Új bejegyzés</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" id="archivum-tab" data-bs-toggle="tab" data-bs-target="#archivum" type="button" role="tab" onclick="loadNaploHistory()">📚 Korábbi naplók</button>
+                    </li>
+                </ul>
 
-    <footer class="footer">
-        2026 KaptárWeb projekt
+                <div class="tab-content" id="naploTabsContent">
+                    
+                    <div class="tab-pane fade show active" id="uj-bejegyzes" role="tabpanel">
+                        <p class="text-muted">Írd be a kaptár mellett készített jegyzeteidet, vagy használd a hangrögzítőt!</p>
 
-    </footer>
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <button id="micBtn" class="btn btn-outline-danger">🎤 Beszéd indítása</button>
+                            <span id="micStatus" class="text-secondary small">Mikrofon készenlétben</span>
+                        </div>
+
+                        <textarea id="naploSzoveg" class="form-control mb-3" rows="5" placeholder="Írj ide vagy használd a mikrofont..."></textarea>
+
+                        <button id="elemzesBtn" class="btn bg-primary text-white w-100 py-2 fw-bold">⚡ Elemzés futtatása</button>
+
+                        <div id="loadingSpinner" class="text-center my-3 d-none">
+                            <div class="spinner-border text-warning" role="status"></div>
+                            <span class="ms-2">Az MI elemzi a kaptár állapotát...</span>
+                        </div>
+                        
+                        <div id="elemzesEredmeny" class="mt-4 p-3 bg-light rounded border d-none" style="white-space: pre-wrap;"></div>
+                    </div>
+
+                    <div class="tab-pane fade" id="archivum" role="tabpanel">
+                        <div id="historyContainer" class="accordion shadow-sm">
+                            </div>
+                    </div>
+                    
+                </div> </div> </div> </div>
+</div>
+        <footer class="footer">
+            2026 KaptárWeb projekt
+
+        </footer>
 </body>
 
 </html>
