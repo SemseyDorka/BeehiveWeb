@@ -19,35 +19,48 @@
 <body id="myPage" class="bg-light d-flex flex-column min-vh-100" data-bs-spy="scroll" data-bs-target=".navbar"
     data-bs-offset="60">
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
-    <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="index.html">
-            <img src="images.png" class="logo logo-img me-2" style="height: 35px; width: 35px;" alt="Logo">
-            <span>KaptárWeb</span>
-        </a>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images.png" class="logo logo-img me-2" style="height: 35px; width: 35px;" alt="Logo">
+                <span>KaptárWeb</span>
+            </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="offcanvas offcanvas-end  myoffcanvas" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menü</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <div class="offcanvas offcanvas-end  myoffcanvas" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menü</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+
+                <div class="offcanvas-body justify-content-end">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Ismertető</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tables.html">Táblázatok</a></li>
+                        <li class="nav-item"><a class="nav-link" href="graphs.html">Grafikonok</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Kapcsolódó oldalak
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="https://miheszet-ay2ndgaa4uhnb2nxswulum.streamlit.app">MI-hészet</a></li>
+                            </ul>
+                        </li>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
-
-            <div class="offcanvas-body justify-content-end">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Ismertető</a></li>
-                    <li class="nav-item"><a class="nav-link" href="tables.html">Táblázatok</a></li>
-                    <li class="nav-item"><a class="nav-link" href="graphs.html">Grafikonok</a></li>
-                </ul>
-            </div>
-
         </div>
-    </div>
-</nav>
+    </nav>
 
     <main class="flex-grow-1">
 
