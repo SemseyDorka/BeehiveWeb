@@ -38,6 +38,8 @@ services:
     environment:
       - DB_PASSWORD=${DB_PASSWORD}  
       - DB_NAME=${DB_NAME}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - MONGO_URI=${MONGO_URI}
     networks:
       - beehive_web
 

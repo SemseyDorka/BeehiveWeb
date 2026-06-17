@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
         //utolsó 20 mérés 
-        adatok.slice(-23).forEach(meres => {
+        adatok.slice(-20).forEach(meres => {
             const sor = document.createElement("tr");
 
             sor.innerHTML = `
