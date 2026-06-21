@@ -72,3 +72,38 @@ micBtn.addEventListener('click', async () => {
         mediaRecorder.stop();
     }
 });
+
+//elemzés llama-3.1-8b-instant 
+document.getElementById('elemzesBtn').addEventListener('click', async () => {
+    const text = naploSzoveg.value.trim();
+    if (!text) {
+        alert("Írj valamit vagy használd a hangrögzítőt!");
+        return;
+    }
+
+    const spinner = document.getElementById('loadingSpinner');
+    const eredmenyDiv = document.getElementById('elemzesEredmeny');
+    
+    spinner.classList.remove('d-none');
+    eredmenyDiv.classList.add('d-none');
+
+    try {
+        const res = await fetch('/api/analyze', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text: text })
+        });
+        const data = await res.json();
+
+        spinner.classList.add('d-none');
+        if (data.analysis) {
+            eredmenyDiv.classList.remove('d-none');
+            naploSzoveg.value = ""; 
+        } else {
+            alert("Hiba: " + data.error);
+        }
+    } catch (err) {
+        spinner.classList.add('d-none');
+        console.error(err);
+    }
+});

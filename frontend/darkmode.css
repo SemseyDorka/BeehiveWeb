@@ -1,0 +1,63 @@
+body.custom-dark {
+    background-color: #12161a !important; 
+    color: #afb8c1 !important;           
+}
+
+
+body.custom-dark .navbar {
+    background-color: #1a1f26 !important; 
+    border-bottom: 1px solid #2d353f;     
+}
+body.custom-dark .navbar .nav-link {
+    color: #cbd5e1 !important;            
+}
+body.custom-dark .navbar .nav-link:hover {
+    color: #ffc107 !important;            
+}
+body.custom-dark .offcanvas {
+    background-color: #1a1f26 !important; 
+    color: #ffffff;
+}
+
+
+body.custom-dark .card {
+    background-color: #222933 !important; 
+    border: 1px solid #2d353f !important; 
+    color: #ffffff !important;
+}
+
+
+body.custom-dark .card-header {
+    background-color: #2d353f !important; 
+    color: #ffffff !important;           
+    border-bottom: 1px solid #3e4956 !important;
+}
+
+body.custom-dark .table {
+    color: #e2e8f0 !important;            
+}
+body.custom-dark .table-striped>tbody>tr:nth-of-type(even)>* {
+    background-color: #28313d !important; 
+    color: #e2e8f0 !important;
+}
+body.custom-dark .table-striped>tbody>tr:nth-of-type(odd)>* {
+    background-color: #3c4653 !important; 
+    color: #e2e8f0 !important;
+}
+body.custom-dark .table-hover>tbody>tr:hover>* {
+    background-color: #343f4e !important;
+}
+body.custom-dark .table thead th {
+    background-color: #1a1f26 !important;
+    color: #ffffff !important;
+    border-bottom: 2px solid #3e4956;
+}
+
+body.custom-dark .footer {
+    background-color: #1a1f26 !important;
+    color: #64748b;
+    border-top: 1px solid #2d353f;
+}
+body.custom-dark .button{
+    background-color: #64748b;
+}

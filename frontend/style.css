@@ -1,8 +1,15 @@
+
 body {
-    font: 400 15px Lato, sans-serif;
-    line-height: 1.8;
-    color: #818181;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s; /* Szép, lágy átmenet */
 }
+
+.card, textarea {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
 
 h2 {
     font-size: 24px;
@@ -35,7 +42,7 @@ h4 {
     line-height: 1.42857143 !important;
     letter-spacing: 4px;
     border-radius: 0;
-    font-family: Montserrat, sans-serif;
+    font-family: Lato, sans-serif;
 }
 
 
@@ -197,3 +204,5 @@ footer,
     text-align: center;
     padding: 15px 5px;
 }
+
+

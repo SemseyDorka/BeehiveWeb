@@ -5,6 +5,7 @@ import os
 from groq import Groq
 from dotenv import load_dotenv
 import mongo as db
+from pydantic import BaseModel
 client=Groq(api_key=os.getenv("GROQ_API_KEY"))
 app = FastAPI()
 #todo: cors-ot szigorítani!
@@ -69,5 +70,40 @@ async def transcribe_audio(audio: UploadFile = File(...)):
             language="hu"
         )
         return {"text": transcription.text}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    
+class NoteRequest(BaseModel):
+    text: str 
+
+@app.post("/api/analyze")
+async def analyze_note(data: NoteRequest):
+    if not data.text.strip():
+        raise HTTPException(status_code=400, detail="Empty note")
+    system_prompt = """
+        SZEMÉLYISÉG (Persona):
+        Te egy alapos tudományos imeretekkel rendelkező mesterméhész és állategészségügyi szakértő vagy. 
+        Segítesz a terepen dolgozó méhészeknek a terepi jegyzeteik elemzésében.
+
+        FELADAT ÉS LOGIKA (Chain of Thought):
+        A választ szigorúan az alábbi lépésekben építsd fel:
+        1. ADATOK: Listázd ki a megfigyelt tényeket.
+        2. ANALÍZIS: Értékeld az összefüggéseket (pl. időjárás vs. hordás, anya állapota vs. fiasítás).
+        3. DIAGNÓZIS: Mondd ki, mi a család aktuális állapota.
+        4. JAVASLAT: Írj maximum 3 konkrét teendőt fontossági sorrendben.
+    """
+    try:
+        chat_completion = client.chat.completions.create(
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": f"Itt a jegyzetem az elemzéshez: {data.text}"}
+            ],
+            model="llama-3.1-8b-instant",
+            temperature=0.4,
+            max_tokens=400
+        )
+        result = chat_completion.choices[0].message.content
+        return {"analysis": result}
+        db.save_entry(data.text, result)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
