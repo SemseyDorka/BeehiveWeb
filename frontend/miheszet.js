@@ -97,6 +97,8 @@ document.getElementById('elemzesBtn').addEventListener('click', async () => {
 
         spinner.classList.add('d-none');
         if (data.analysis) {
+            console.log(data.analysis)
+            eredmenyDiv.innerText = data.analysis;
             eredmenyDiv.classList.remove('d-none');
             naploSzoveg.value = ""; 
         } else {

@@ -204,5 +204,8 @@ footer,
     text-align: center;
     padding: 15px 5px;
 }
-
+.logo
+{
+   content:  url(images.png);
+}
 

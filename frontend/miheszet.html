@@ -80,8 +80,8 @@
             <h1 id="mainTitle" class="display-4 fw-bold">MI-hészet - Okos Méhész Napló</h1>
             <p class="lead">Generatív MI alapú méhészeti szakértői rendszer</p>
         </div>
-        <div class="row justify-content-center my-5">
-            <div class="col-lg-8 col-md-10">
+        <div class="row  ">
+            <div class="col-lg-8 col-md-8">
 
                 <div class="card shadow border-0">
 
@@ -113,7 +113,7 @@
                                 <textarea id="naploSzoveg" class="form-control mb-3" rows="5"
                                     placeholder="Írj ide vagy használd a mikrofont..."></textarea>
 
-                                <button id="elemzesBtn" class="btn bg-primary text-white w-100 py-2 fw-bold">⚡ Elemzés
+                                <button id="elemzesBtn" class="btn bg-primary text-white w-100 py-2 fw-bold"> Elemzés
                                     futtatása</button>
 
                                 <div id="loadingSpinner" class="text-center my-3 d-none">
@@ -121,8 +121,6 @@
                                     <span class="ms-2">Az MI elemzi a kaptár állapotát...</span>
                                 </div>
 
-                                <div id="elemzesEredmeny" class="mt-4 p-3 bg-light rounded border d-none"
-                                    style="white-space: pre-wrap;"></div>
                             </div>
 
                             <div class="tab-pane fade" id="archivum" role="tabpanel">
@@ -131,16 +129,31 @@
                             </div>
 
                         </div>
+
                     </div>
                 </div>
             </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="card w-100">
+                    <div class="card-header bg-dark text-white">
+                        <h3 class="mb-0 fs-5">Elemzés eredménye</h3>
+                    </div>
+                    <div class="card-body">
+                        Itt fog megejeleni az MI által kielemezett bejegyzés, javaslatokkal együtt. Az oldal a
+                        llama-3.1-8b-instant modelt használja a naplóbejegyzések elemzéséhez. Az ilyen mesteséges
+                        inteligencia alapú modellek tévedhetnek, ezért az itt megjelnő tanácsokat érdemes
+                        fentartásokkal kezelni. </div>
+                </div>
+            </div>
         </div>
-        <footer class="footer">
-            2026 KaptárWeb projekt
+        </div>
+    </main>
+    <footer class="footer">
+        2026 KaptárWeb projekt
 
-        </footer>
-        <script src="miheszet.js"></script>
-        <script src="darkmode.js"></script>
+    </footer>
+    <script src="miheszet.js"></script>
+    <script src="darkmode.js"></script>
 </body>
 
 </html>

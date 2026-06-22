@@ -1,34 +1,39 @@
+
 body.custom-dark {
-    background-color: #12161a !important; 
+    background-color: #0E0F18 !important; 
     color: #afb8c1 !important;           
 }
 
 
 body.custom-dark .navbar {
-    background-color: #1a1f26 !important; 
-    border-bottom: 1px solid #2d353f;     
+    background-color: #0E0F18 !important; 
+    border-bottom: 1px solid #36195B;     
 }
 body.custom-dark .navbar .nav-link {
     color: #cbd5e1 !important;            
 }
 body.custom-dark .navbar .nav-link:hover {
-    color: #ffc107 !important;            
+    color: #130F41 !important;            
 }
 body.custom-dark .offcanvas {
-    background-color: #1a1f26 !important; 
+    background-color: #0E0F18 !important; 
     color: #ffffff;
+}
+body.custom-dark .bg-primary
+{
+    background-color: #080B38 !important;
 }
 
 
 body.custom-dark .card {
     background-color: #222933 !important; 
-    border: 1px solid #2d353f !important; 
+    border: 1px solid #000000 !important; 
     color: #ffffff !important;
 }
 
 
 body.custom-dark .card-header {
-    background-color: #2d353f !important; 
+    background-color: #030A1C !important; 
     color: #ffffff !important;           
     border-bottom: 1px solid #3e4956 !important;
 }
@@ -58,6 +63,25 @@ body.custom-dark .footer {
     color: #64748b;
     border-top: 1px solid #2d353f;
 }
-body.custom-dark .button{
-    background-color: #64748b;
+
+body.custom-dark #banner {
+    background-image: url("dark_bg.jpg");
+    background-size:contain;
+    background-position: center 20%;
+    color: #fff;
+    padding: 100px 25px;
+    font-family: Montserrat, sans-serif;
+    min-height: 25%;
+}
+body.custom-dark .logo
+{
+    content: url("darkBee.png");
+}
+body.custom-dark #elemzesBtn
+{
+    background-color: #15204e;
+}
+body.custom-dark #elemzesEredmeny
+{
+    background-color: #0E0F18 !important;
 }
