@@ -80,72 +80,87 @@
             <h1 id="mainTitle" class="display-4 fw-bold">MI-hészet - Okos Méhész Napló</h1>
             <p class="lead">Generatív MI alapú méhészeti szakértői rendszer</p>
         </div>
-        <div class="row  ">
-            <div class="col-lg-8 col-md-8">
+        <div class="container my-5">
+            <div class="row g-3">
+                <div class="col-lg-6">
+                    <div class="d-flex flex-column gap-3 h-100 justify-content-between">
 
-                <div class="card shadow border-0">
-
-
-                    <div class="card-body p-4">
-                        <ul class="nav nav-tabs justify-content-center mb-4" id="naploTabs" role="tablist">
-                            <li class="nav-item">
-                                <button class="nav-link active" id="uj-bejegyzes-tab" data-bs-toggle="tab"
-                                    data-bs-target="#uj-bejegyzes" type="button" role="tab"> Új bejegyzés</button>
-                            </li>
-                            <li class="nav-item">
-                                <button class="nav-link" id="archivum-tab" data-bs-toggle="tab"
-                                    data-bs-target="#archivum" type="button" role="tab" onclick="loadNaploHistory()">
-                                    Korábbi naplók</button>
-                            </li>
-                        </ul>
-
-                        <div class="tab-content" id="naploTabsContent">
-
-                            <div class="tab-pane fade show active" id="uj-bejegyzes" role="tabpanel">
-                                <p class="text-muted">Írd be a kaptár mellett készített jegyzeteidet, vagy használd a
-                                    hangrögzítőt!</p>
-
-                                <div class="d-flex align-items-center gap-2 mb-3">
-                                    <button id="micBtn" class="btn btn-outline-danger"> Beszéd indítása</button>
-                                    <span id="micStatus" class="text-secondary small">Mikrofon készenlétben</span>
-                                </div>
-
-                                <textarea id="naploSzoveg" class="form-control mb-3" rows="5"
-                                    placeholder="Írj ide vagy használd a mikrofont..."></textarea>
-
-                                <button id="elemzesBtn" class="btn bg-primary text-white w-100 py-2 fw-bold"> Elemzés
-                                    futtatása</button>
-
-                                <div id="loadingSpinner" class="text-center my-3 d-none">
-                                    <div class="spinner-border text-warning" role="status"></div>
-                                    <span class="ms-2">Az MI elemzi a kaptár állapotát...</span>
-                                </div>
-
+                        <div class="card w-100">
+                            <div class="card-header bg-dark text-white">
+                                <h3 class="mb-0 fs-5">A projekt célja</h3>
                             </div>
+                            <div class="card-body">
+                                <ul class="nav nav-tabs justify-content-center mb-4" id="naploTabs" role="tablist">
+                                    <li class="nav-item">
+                                        <button class="nav-link active" id="uj-bejegyzes-tab" data-bs-toggle="tab"
+                                            data-bs-target="#uj-bejegyzes" type="button" role="tab"> Új
+                                            bejegyzés</button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button class="nav-link" id="archivum-tab" data-bs-toggle="tab"
+                                            data-bs-target="#archivum" type="button" role="tab"
+                                            onclick="loadNaploHistory()">
+                                            Korábbi naplók</button>
+                                    </li>
+                                </ul>
 
-                            <div class="tab-pane fade" id="archivum" role="tabpanel">
-                                <div id="historyContainer" class="accordion shadow-sm">
+                                <div class="tab-content" id="naploTabsContent">
+
+                                    <div class="tab-pane fade show active" id="uj-bejegyzes" role="tabpanel">
+                                        <p>Írd be a kaptár mellett készített jegyzeteidet, vagy
+                                            használd
+                                            a
+                                            hangrögzítőt!</p>
+
+                                        <div class="d-flex align-items-center gap-2 mb-3">
+                                            <button id="micBtn" class="btn btn-outline-danger"> Beszéd indítása</button>
+                                            <span id="micStatus" class="text-secondary small">Mikrofon
+                                                készenlétben</span>
+                                        </div>
+
+                                        <textarea id="naploSzoveg" class="form-control mb-3" rows="5"
+                                            placeholder="Írj ide vagy használd a mikrofont..."></textarea>
+
+                                        <button id="elemzesBtn" class="btn bg-primary text-white w-100 py-2 fw-bold">
+                                            Elemzés
+                                            futtatása</button>
+
+                                        <div id="loadingSpinner" class="text-center my-3 d-none">
+                                            <div class="spinner-border text-warning" role="status"></div>
+                                            <span class="ms-2">Az MI elemzi a kaptár állapotát...</span>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tab-pane fade" id="archivum" role="tabpanel">
+                                        <div id="historyContainer" class="accordion shadow-sm">
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
-
                         </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="d-flex flex-column gap-3 h-100 justify-content-between">
 
+                        <div class="card w-100">
+                            <div class="card-header bg-dark text-white">
+                                <h3 class="mb-0 fs-5">Elemzés eredménye</h3>
+                            </div>
+                            <div class="card-body" id="elemzesEredmeny">
+                                Itt fog megejeleni az MI által kielemezett bejegyzés, javaslatokkal együtt. Az oldal a
+                                llama-3.1-8b-instant modelt használja a naplóbejegyzések elemzéséhez. Az ilyen
+                                mesteséges
+                                inteligencia alapú modellek tévedhetnek, ezért az itt megjelnő tanácsokat érdemes
+                                fentartásokkal kezelni.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4">
-                <div class="card w-100">
-                    <div class="card-header bg-dark text-white">
-                        <h3 class="mb-0 fs-5">Elemzés eredménye</h3>
-                    </div>
-                    <div class="card-body">
-                        Itt fog megejeleni az MI által kielemezett bejegyzés, javaslatokkal együtt. Az oldal a
-                        llama-3.1-8b-instant modelt használja a naplóbejegyzések elemzéséhez. Az ilyen mesteséges
-                        inteligencia alapú modellek tévedhetnek, ezért az itt megjelnő tanácsokat érdemes
-                        fentartásokkal kezelni. </div>
-                </div>
-            </div>
-        </div>
+
         </div>
     </main>
     <footer class="footer">

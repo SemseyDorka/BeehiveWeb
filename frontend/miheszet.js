@@ -60,7 +60,7 @@ micBtn.addEventListener('click', async () => {
 
             mediaRecorder.start();
             micBtn.innerHTML = "Megállítás";
-            micBtn.classList.replace('btn-outline-danger', 'btn-danger'); // Pirosra vált a gomb
+            micBtn.classList.replace('btn-outline-danger', 'btn-danger'); 
             micStatus.innerText = " Rögzítés folyamatban...";
 
         } catch (err) {
@@ -85,7 +85,6 @@ document.getElementById('elemzesBtn').addEventListener('click', async () => {
     const eredmenyDiv = document.getElementById('elemzesEredmeny');
     
     spinner.classList.remove('d-none');
-    eredmenyDiv.classList.add('d-none');
 
     try {
         const res = await fetch('/api/analyze', {
@@ -99,13 +98,11 @@ document.getElementById('elemzesBtn').addEventListener('click', async () => {
         if (data.analysis) {
             console.log(data.analysis)
             eredmenyDiv.innerText = data.analysis;
-            eredmenyDiv.classList.remove('d-none');
             naploSzoveg.value = ""; 
         } else {
             alert("Hiba: " + data.error);
         }
     } catch (err) {
         spinner.classList.add('d-none');
-        console.error(err);
     }
 });

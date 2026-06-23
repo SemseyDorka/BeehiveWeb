@@ -63,6 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(error => {
             console.error("Hiba történt a grafikon adatainak letöltésekor:", error);
             document.getElementById('plotly-chart').innerHTML = 
-                `<div class="alert alert-danger m-3">Nem sikerült betölteni a grafikont az API-ból.</div>`;
+                `<div class="alert alert-danger m-3">Nem sikerült betölteni a grafikont .</div>`;
         });
 });
