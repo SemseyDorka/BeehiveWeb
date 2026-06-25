@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     
   
-    fetch('/api/meresek') 
+    fetch('/kaptarweb/api/meresek') 
         .then(response => response.json())
         .then(adatok => {
 

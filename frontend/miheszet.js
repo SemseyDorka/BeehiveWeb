@@ -29,7 +29,7 @@ micBtn.addEventListener('click', async () => {
                 formData.append('audio', audioBlob, 'memo.wav');
 
                 try {
-                    const res = await fetch('/api/transcribe', { 
+                    const res = await fetch('/kaptarweb/api/transcribe', { 
                         method: 'POST', 
                         body: formData 
                     });
@@ -87,7 +87,7 @@ document.getElementById('elemzesBtn').addEventListener('click', async () => {
     spinner.classList.remove('d-none');
 
     try {
-        const res = await fetch('/api/analyze', {
+        const res = await fetch('/kaptarweb/api/analyze', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ text: text })

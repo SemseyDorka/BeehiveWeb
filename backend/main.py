@@ -26,7 +26,8 @@ def get_db_connection():
         cursorclass=pymysql.cursors.DictCursor
     )
 
-@app.get("/api/meresek")
+
+@app.get("/meresek")
 def read_meresek():
     try:
         conn = get_db_connection()
@@ -42,24 +43,10 @@ def read_meresek():
         return adatok
     except Exception as e:
         return {"error": str(e)}
-@app.get("/api/meresek")
-def read_meresek():
-    try:
-        conn = get_db_connection()
-        with conn.cursor() as cursor:
-            cursor.execute("SELECT id, kaptar, suly, homerseklet, feszek_homerseklet, datum FROM merleg ORDER BY datum DESC")
-            adatok = cursor.fetchall()
-        conn.close()
-        
-        for sor in adatok:
-            if sor['datum']:
-                sor['datum'] = sor['datum'].strftime('%Y-%m-%d %H:%M:%S')
-                
-        return adatok
-    except Exception as e:
-        return {"error": str(e)}
+
+
           
-@app.post("/api/transcribe")
+@app.post("/transcribe")
 async def transcribe_audio(audio: UploadFile = File(...)):
     try:
         audio_bytes = await audio.read()
@@ -76,7 +63,7 @@ async def transcribe_audio(audio: UploadFile = File(...)):
 class NoteRequest(BaseModel):
     text: str 
 
-@app.post("/api/analyze")
+@app.post("/analyze")
 async def analyze_note(data: NoteRequest):
     if not data.text.strip():
         raise HTTPException(status_code=400, detail="Empty note")

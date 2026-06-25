@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const tablaTorzs = document.getElementById("meresek-torzs");
 
     try {
-        const response = await fetch('/api/meresek');
+        const response = await fetch('/kaptarweb/api/meresek');
         if (!response.ok) throw new Error("Hiba történt az adatok lekérésekor.");
 
         const adatok = await response.json();
