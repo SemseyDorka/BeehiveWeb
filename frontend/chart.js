@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 */
             //utolsó 20 mérés
             
-               const utolsoMeresek = adatok.slice(-20);
+               const utolsoMeresek = adatok.slice(0,20);
                const xIdovonal = utolsoMeresek.map(meres => new Date(meres.datum));
                const ySulyok = utolsoMeresek.map(meres => meres.suly);
             
@@ -36,8 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const layout = {
                 title: {
-                    text: 'Kaptár mérleg adatok alakulása',
-                    font: { family: 'Arial, sans-serif', size: 18 }
+                    font: { family: 'Arial, sans-serif', size: 12 }
                 },
                 xaxis: { 
                     title: 'Dátum',      

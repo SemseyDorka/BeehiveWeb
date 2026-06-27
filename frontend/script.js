@@ -13,14 +13,15 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
         //utolsó 20 mérés 
-        adatok.slice(-20).forEach(meres => {
+        adatok.slice(0,20).forEach(meres => {
             const sor = document.createElement("tr");
 
             sor.innerHTML = `
-        <td>${meres.id}</td>
+        <td>${meres.kaptar}</td>
         <td>${new Date(meres.datum).toLocaleString('hu-HU')}</td>
         <td>${meres.suly} kg</td>
         <td>${meres.homerseklet} °C</td>
+        <td>${meres.feszek_homerseklet} °C</td>
     `;
 
             tablaTorzs.appendChild(sor);

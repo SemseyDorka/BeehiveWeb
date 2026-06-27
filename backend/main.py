@@ -25,7 +25,30 @@ def get_db_connection():
         database=os.environ.get('DB_NAME', 'beehive_db'), 
         cursorclass=pymysql.cursors.DictCursor
     )
+#data model
+class HiveData(BaseModel):
+    kaptar:int
+    suly: float
+    homerseklet: float
+    feszek_homerseklet: float
 
+#mérési adatok küldése az adatbázisnak
+@app.post("/meresek")
+async def save_data(data: HiveData):
+    try:
+        connection=get_db_connection()
+        with connection.cursor() as cursor:
+            sql="""
+                INSERT INTO merleg (kaptar, suly, homerseklet, feszek_homerseklet) 
+                VALUES (%s, %s, %s, %s)
+            """
+            cursor.execute(sql,(data.kaptar,data.suly,data.homerseklet,data.feszek_homerseklet))
+            connection.commit()
+            connection.close()
+            return {"status": "success", "message": "Adat elmentve"} 
+    except Exception as e:
+        print(f"Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/meresek")
 def read_meresek():

@@ -2,9 +2,12 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s; /* Szép, lágy átmenet */
+    transition: background-color 0.3s, color 0.3s; 
 }
-
+.bg-light
+{
+    background-color: #F2F0EF !important;
+}
 .card, textarea {
     background-color: var(--card-bg);
     color: var(--text-color);
