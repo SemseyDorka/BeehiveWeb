@@ -1,3 +1,7 @@
+#######A valós idejű adatmegejnítés teszetlésére szolgáló "virtuális mérleg" 
+#######A változók értékeinek váltpoztatásával  szimulálhtaó   akár több esemény is (pl. riasztás, pergetés stb) 
+#######Az adatbázisban ez a "mérleg" a 2-es kaptárszámot kapta, az  1-es kaptárszámhoz régebbi valós adatok tartoznak
+
 import time
 import random
 import os

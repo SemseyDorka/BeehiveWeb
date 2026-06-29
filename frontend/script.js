@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const sor = document.createElement("tr");
 
             sor.innerHTML = `
-        <td>${meres.kaptar}</td>
+   
         <td>${new Date(meres.datum).toLocaleString('hu-HU')}</td>
         <td>${meres.suly} kg</td>
         <td>${meres.homerseklet} °C</td>

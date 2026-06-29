@@ -21,7 +21,7 @@ services:
     build: ./backend
     container_name: beehiveBackend
     restart: always
-    depends_on:
+    depends_on: 
       - db
     environment:
       - DB_PASSWORD=${DB_PASSWORD}  
