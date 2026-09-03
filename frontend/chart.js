@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
                const ySulyok = utolsoMeresek.map(meres => meres.suly);
             
 
-           
             const trace = {
                 x: xIdovonal,            
                 y: ySulyok,              
@@ -40,11 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 },
                 xaxis: { 
                     title: 'Dátum',      
-                    type: 'date',       
+                    type: 'date',  
+                    fixedrange: true,     
                     gridcolor: '#e5e7eb' 
                 },
                 yaxis: { 
                     title: 'Súly (kg)',
+                    fixedrange: true,   
                     gridcolor: '#e5e7eb'
                 },
                 margin: { t: 50, b: 50, l: 60, r: 30 },

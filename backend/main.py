@@ -27,8 +27,8 @@ def get_db_connection():
     )
 #data model
 class HiveData(BaseModel):
-    kaptar:int
-    suly: float
+    kaptar:int 
+    suly: float 
     homerseklet: float
     feszek_homerseklet: float
 
@@ -109,9 +109,9 @@ async def analyze_note(data: NoteRequest):
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": f"Itt a jegyzetem az elemzéshez: {data.text}"}
             ],
-            model="llama-3.1-8b-instant",
+            model="openai/gpt-oss-120b",
             temperature=0.4,
-            max_tokens=400
+            max_tokens=600
         )
         result = chat_completion.choices[0].message.content
         return {"analysis": result}
