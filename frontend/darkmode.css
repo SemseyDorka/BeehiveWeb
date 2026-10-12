@@ -15,6 +15,10 @@ body.custom-dark .navbar .nav-link {
 body.custom-dark .navbar .nav-link:hover {
     color: #130F41 !important;            
 }
+body.custom-dark .navbar .nav-link.active {
+    color: #130F41 !important;      
+    margin: auto;      
+}
 body.custom-dark .offcanvas {
     background-color: #0E0F18 !important; 
     color: #ffffff;
@@ -23,6 +27,7 @@ body.custom-dark .bg-primary
 {
     background-color: #080B38 !important;
 }
+
 
 
 body.custom-dark .card {

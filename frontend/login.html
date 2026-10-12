@@ -1,0 +1,212 @@
+```html
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KaptárWeb</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="darkmode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <script src="auth.js"></script>
+
+    <style>
+        .google-login-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            max-width: 300px;
+            height: 44px;
+            padding: 0 20px;
+            background-color: #ffffff;
+            color: #3c4043;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s, box-shadow 0.2s;
+        }
+
+        .google-login-btn:hover {
+            background-color: #f8f9fa;
+            box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3);
+        }
+
+        .google-login-btn:active {
+            background-color: #f1f3f4;
+        }
+
+        .google-icon {
+            width: 18px;
+            height: 18px;
+        }
+    </style>
+</head>
+
+<body id="myPage" class="bg-light d-flex flex-column min-vh-100" data-bs-spy="scroll" data-bs-target=".navbar"
+    data-bs-offset="60">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img class="logo logo-img me-2" style="height: 35px; width: 35px;">
+                <span>KaptárWeb</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="offcanvas offcanvas-end myoffcanvas" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                        Menü
+                    </h5>
+
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close">
+                    </button>
+                </div>
+
+                <div class="offcanvas-body justify-content-end">
+                    <ul class="navbar-nav">
+                        <li class="nav-item d-flex align-items-center">
+                            <i class="fa fa-sun-o" style="font-size: large;"></i>
+
+                            <div class="ms-2 form-check form-switch mb-0">
+                                <input class="form-check-input" type="checkbox" role="switch" id="themingSwitcher">
+                            </div>
+
+                            <i class="fa fa-moon-o" style="font-size: large;"></i>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Kapcsolódó oldalak
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="https://miheszet-ay2ndgaa4uhnb2nxswulum.streamlit.app">
+                                        MI-hészet
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow-1 pb-5">
+        <div class="p-5 mb-4 text-white text-center" id="banner" style="margin-top: 60px; margin-bottom: 60px;">
+            <h1 id="mainTitle" class="display-4 fw-bold">
+                KaptárWeb
+            </h1>
+
+            <p class="lead">
+                Kaptármérleg monitorozó és előrejelző rendszer
+            </p>
+        </div>
+
+        <div class="container my-5 mb-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="d-flex flex-column gap-3 h-100">
+                        <div class="card w-100">
+                            <div class="card-header bg-dark text-white">
+                                <h3 class="mb-0 fs-5">
+                                    Üdvözöl a KaptárWeb!
+                                </h3>
+                            </div>
+
+                            <div class="card-body" style="text-align: justify;">
+                                A klímaváltozás és a méhek között terjedő különböző kórokozók egyre kiszámíthatatlanabbá
+                                teszik a méhészetet. Éppen ezért fontos,hogy a méhészek számára minél több információ
+                                álljon rendelkezésre a környezet és a kaptárak változásáról, könnyen elérhető formában.
+                                A méhészetben régebben alkalmazott módszerek, a kaptárak „manuális” vizsgálata és
+                                mérése, már nem felelnek meg a modern időjárási körülmények támasztotta kihívásoknak.
+
+                                A kaptármérlegek által szolgáltatott egyik legfontosabb adat a kaptártömeg. Ennek
+                                változása nemcsak a várható méztermelésről ad képet, hanem a méhcsaládok állapotáról is.
+                                A jelenleg fejlesztés alatt lévő oldal
+                                célja, hogy lehetővé tegye a kaptármérlegek
+                                monitorozását (később akár a várható hozam előrejelzését is), ezzel támogatva a hazai
+                                méhészetek és kutatók munkáját.
+                                A projekt az ELTE Meteorológiai Tanszék munkatársainak
+                                támogatásával jött létre. A jelenleg működő oldal egy fejlesztés alatt álló teszt
+                                verzió.
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="row justify-content-center">
+                                <div class="col-lg-6">
+                    <div class="card w-100">
+                        <div class="card-header bg-dark text-white">
+                            <h3 class="mb-0 fs-5">
+                                Bejelentkezés
+                            </h3>
+                        </div>
+
+                        <div class="card-body" style="text-align: center;">
+                            <p>
+                                Az oldal funkcióinak használatához jelentkezz be!
+                            </p>
+
+                            <button type="button" class="google-login-btn"
+                                onclick="window.location.href='/kaptarweb/api/auth/google'">
+                                <svg class="google-icon" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill="#4285F4"
+                                        d="M17.64 9.2045c0-.638-.0573-1.2527-.1636-1.8409H9v3.4818h4.8445c-.2086 1.125-.8427 2.0782-1.796 2.7155v2.2582h2.9082c1.7027-1.5668 2.6833-3.8745 2.6833-6.6146z" />
+                                    <path fill="#34A853"
+                                        d="M9 18c2.43 0 4.4673-.8059 5.9564-2.1809l-2.9082-2.2582c-.8059.54-1.8368.8591-3.0482.8591-2.3441 0-4.3295-1.5845-5.0368-3.7155H.9573v2.3318C2.4382 15.9832 5.4818 18 9 18z" />
+                                    <path fill="#FBBC05"
+                                        d="M3.9632 10.7045A5.4074 5.4074 0 0 1 3.68 9c0-.5905.1014-1.1645.2832-1.7045V4.9636H.9573A8.9975 8.9975 0 0 0 0 9c0 1.4518.3477 2.8245.9573 4.0364l3.0059-2.3319z" />
+                                    <path fill="#EA4335"
+                                        d="M9 3.5795c1.3214 0 2.5077.4541 3.4418 1.3459l2.5814-2.5814C13.4636.8918 11.4264 0 9 0 5.4818 0 2.4382 2.0168.9573 4.9636l3.0059 2.3319C4.6705 5.1645 6.6559 3.5795 9 3.5795z" />
+                                </svg>
+
+                                Bejelentkezés Google-fiókkal
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        2026 KaptárWeb projekt
+    </footer>
+<br>
+    <script src="script.js"></script>
+    <script src="darkmode.js"></script>
+
+</body>
+
+</html>

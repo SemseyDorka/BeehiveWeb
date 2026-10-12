@@ -6,3 +6,8 @@ groq
 python-dotenv
 pymongo
 python-multipart
+passlib[bcrypt]
+mysql-connector-python
+pyjwt
+authlib
+pydantic-settings

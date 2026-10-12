@@ -4,9 +4,16 @@ import pymysql
 import os
 from groq import Groq
 from dotenv import load_dotenv
+load_dotenv()
 import mongo as db
 from pydantic import BaseModel
 client=Groq(api_key=os.getenv("GROQ_API_KEY"))
+from starlette.middleware.sessions import SessionMiddleware
+from routers import auth, users, google_auth
+from typing import Annotated
+from fastapi import Depends
+from routers import auth
+
 app = FastAPI()
 #todo: cors-ot szigorítani!
 app.add_middleware(
@@ -16,6 +23,23 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.add_middleware(
+    SessionMiddleware,
+    secret_key=os.environ.get("SECRET_KEY"),
+    same_site="lax",
+    https_only=True
+)
+
+
+app.include_router(auth.router)
+app.include_router(users.router)
+app.include_router(google_auth.router)
+
+
+@app.get("/")
+def home():
+    return {"message": "Welcome to FastAPI OAuth2 Authentication!"}  
 
 def get_db_connection():
     return pymysql.connect(
@@ -67,8 +91,24 @@ def read_meresek():
     except Exception as e:
         return {"error": str(e)}
 
+@app.get("/me")
+async def get_current_user_info(
+    current_user: Annotated[
+        dict,
+        Depends(auth.get_current_active_user)
+    ]
+):
+    user = current_user["user"]
 
-          
+    return {
+        "username": user.get("username"),
+        "email": user.get("email"),
+        "given_name": user.get("given_name"),
+        "role": user.get("role"),
+        "picture_url":user.get("picture_url"),
+        "apiary_id":user.get("apiary_id")
+    }     
+
 @app.post("/transcribe")
 async def transcribe_audio(audio: UploadFile = File(...)):
     try:
